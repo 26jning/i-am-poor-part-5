@@ -27,20 +27,25 @@ public class MainActivity extends AppCompatActivity {
         rich = findViewById(R.id.button2); //declaring rich button
         text = findViewById(R.id.textView); //declaring text
         poor.setOnClickListener(new View.OnClickListener() { //when poor button is clicked
-            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
-                text.setText("I AM POOR");
-                text.setTextColor(Color.RED);
+                verifyRichness(poor);
             }
         });
         rich.setOnClickListener(new View.OnClickListener() { //when rich button is clicked
-            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
-                text.setText("I AM RICH");
-                text.setTextColor(Color.GREEN);
+                verifyRichness(rich);
             }
         });
+    }
+
+    /**
+     * Changes text based on the button given
+     * @param button -Button button
+     */
+    @SuppressLint("SetTextI18n")
+    public void verifyRichness(Button button) {
+        text.setText("I AM " + button.getText());
     }
 }
